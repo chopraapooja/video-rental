@@ -4,7 +4,12 @@ import java.util.ArrayList;
 
 public class Customer {
 	private String name;
-	private ArrayList<Rental> rentalList = new ArrayList<Rental>();
+
+    public ArrayList<Rental> getRentalList() {
+        return rentalList;
+    }
+
+    private ArrayList<Rental> rentalList = new ArrayList<Rental>();
     private int frequentRenterPoints = 0;
 
     public Customer(String name) {
