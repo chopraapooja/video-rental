@@ -1,11 +1,6 @@
 package com.twu.refactor;
 
 public class Movie {
-//	public static final int  CHILDRENS = 2;
-//	public static final int  REGULAR = 0;
-//	public static final int  NEW_RELEASE = 1;
-
-    MoviePriceCategory category;
 	private String title;
 	private MoviePriceCategory priceCategory;
 
@@ -18,7 +13,7 @@ public class Movie {
 		return priceCategory;
 	}
 
-	public void setPriceCode(MoviePriceCategory arg) {
+	public void setPriceCategory(MoviePriceCategory arg) {
     	priceCategory = arg;
 	}
 

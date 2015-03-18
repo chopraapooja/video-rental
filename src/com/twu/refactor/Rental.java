@@ -25,6 +25,12 @@ public class Rental {
         return getMovie().getPriceCategory().getCostFor(daysRented);
     }
 
+    public int getBonus() {
+        int bonus = 1;
+        boolean isUnderScheme = (getMovie().getPriceCategory() == NEW_RELEASE) && getDaysRented() > 1;
+        return isUnderScheme ? bonus+1 : bonus;
+    }
+
     int getBonusOn() {
         int bonus = 0;
         if ((getMovie().getPriceCategory() == NEW_RELEASE)
