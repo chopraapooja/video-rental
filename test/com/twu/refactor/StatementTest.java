@@ -2,12 +2,8 @@ package com.twu.refactor;
 
 import junit.framework.TestCase;
 
-<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.Map;
-
-=======
->>>>>>> origin/master
 import static com.twu.refactor.MoviePriceCategory.CHILDREN;
 import static com.twu.refactor.MoviePriceCategory.NEW_RELEASE;
 import static com.twu.refactor.MoviePriceCategory.REGULAR;
@@ -15,11 +11,8 @@ import static com.twu.refactor.MoviePriceCategory.REGULAR;
 public class StatementTest extends TestCase {
 
     private Customer mickey = new Customer("Mickey");
-<<<<<<< HEAD
     private Statement mickeyStatement;
-=======
 
->>>>>>> origin/master
     private Movie python = new Movie("Monty Python and the Holy Grail", REGULAR);
     private Movie ran = new Movie("Ran", REGULAR);
     private Movie la = new Movie("LA Confidential", NEW_RELEASE);
@@ -27,10 +20,7 @@ public class StatementTest extends TestCase {
     private Movie wallace = new Movie("Wallace and Gromit", CHILDREN);
 
     public void setUp (){
-<<<<<<< HEAD
         mickeyStatement = new Statement(mickey);
-=======
->>>>>>> origin/master
         mickey.addRental(new Rental(python, 3));
         mickey.addRental(new Rental(ran, 1));
         mickey.addRental(new Rental(la, 2));
@@ -45,25 +35,16 @@ public class StatementTest extends TestCase {
         assertEquals(expectedPoints, points);
     }
     public void testGetFrequentRenterPoints() throws Exception {
-<<<<<<< HEAD
-=======
-        Statement mickeyStatement = new Statement(mickey);
->>>>>>> origin/master
         int expectedPoints = 6;
         int points = mickeyStatement.getFrequentRenterPoints();
         assertEquals(expectedPoints, points);
     }
     public void testGetFrequentRenterPointsWhenCategoryChanged() {
         la.setPriceCategory(REGULAR);
-<<<<<<< HEAD
-=======
-        Statement mickeyStatement = new Statement(mickey);
->>>>>>> origin/master
         int expectedPoints = 5;
         int points = mickeyStatement.getFrequentRenterPoints();
         assertEquals(expectedPoints, points);
     }
-<<<<<<< HEAD
     public void testGetMovieRentSummary() {
         Map<String, Double> expected = new HashMap();
         expected.put("Monty Python and the Holy Grail", 3.5);
@@ -81,7 +62,4 @@ public class StatementTest extends TestCase {
         Map<String, Double> rentSummary = mickeyStatement.getMovieRentSummary();
         assertEquals(expected, rentSummary);
     }
-=======
-
->>>>>>> origin/master
 }
