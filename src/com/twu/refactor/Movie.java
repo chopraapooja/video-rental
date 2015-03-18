@@ -1,24 +1,25 @@
 package com.twu.refactor;
 
 public class Movie {
-	public static final int  CHILDRENS = 2;
-	public static final int  REGULAR = 0;
-	public static final int  NEW_RELEASE = 1;
+//	public static final int  CHILDRENS = 2;
+//	public static final int  REGULAR = 0;
+//	public static final int  NEW_RELEASE = 1;
 
+    MoviePriceCategory category;
 	private String title;
-	private int priceCode;
+	private MoviePriceCategory priceCategory;
 
-	public Movie(String title, int priceCode) {
+	public Movie(String title, MoviePriceCategory priceCategory) {
 		this.title = title;
-		this.priceCode = priceCode;
+		this.priceCategory = priceCategory;
 	}
 
-	public int getPriceCode() {
-		return priceCode;
+	public MoviePriceCategory getPriceCategory() {
+		return priceCategory;
 	}
 
-	public void setPriceCode(int arg) {
-    	priceCode = arg;
+	public void setPriceCode(MoviePriceCategory arg) {
+    	priceCategory = arg;
 	}
 
 	public String getTitle () {
