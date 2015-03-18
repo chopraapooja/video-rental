@@ -14,7 +14,7 @@ public class Statement {
     public Statement(Customer customer) {
         this.customer = customer;
     }
-    protected String getName() {
+    protected String getCustomerName() {
         return customer.getName();
     }
     protected Double getTotalAmt() {

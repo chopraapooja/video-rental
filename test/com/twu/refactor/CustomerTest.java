@@ -13,6 +13,7 @@ public class CustomerTest extends TestCase {
 	private static final String GOLD_PATH = "test/data";
 
     private Customer dinsdale = new Customer("Dinsdale Pirhana");
+    private TextStatement dinsdalesStatement;
 
     private Movie python = new Movie("Monty Python and the Holy Grail", REGULAR);
 	private Movie ran = new Movie("Ran", REGULAR);
@@ -21,6 +22,7 @@ public class CustomerTest extends TestCase {
 	private Movie wallace = new Movie("Wallace and Gromit", CHILDREN);
 
     public void setUp (){
+       dinsdalesStatement = new TextStatement(dinsdale);
        dinsdale.addRental(new Rental (python, 3));
        dinsdale.addRental(new Rental (ran, 1));
        dinsdale.addRental(new Rental (la, 2));
@@ -30,15 +32,16 @@ public class CustomerTest extends TestCase {
 
     public void testEmpty() throws Exception {
     	dinsdale = new Customer("Dinsdale Pirhana");
-        equalsFile("1st Output", "outputEmpty", dinsdale.getStatement());
+        dinsdalesStatement = new TextStatement(dinsdale);
+        equalsFile("1st Output", "outputEmpty", dinsdalesStatement.toString());
     }
     public void testCustomer() throws Exception {
-        equalsFile("1st Output", "output1", dinsdale.getStatement());
+        equalsFile("1st Output", "output1", dinsdalesStatement.toString());
     }
 
     public void testChange() throws Exception {
     	la.setPriceCategory(REGULAR);
-        equalsFile("1st Output", "outputChange", dinsdale.getStatement());
+        equalsFile("1st Output", "outputChange", dinsdalesStatement.toString());
     }
 
     protected void equalsFile(String message, String fileName, String actualValue) throws IOException{
