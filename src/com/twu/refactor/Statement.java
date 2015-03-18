@@ -40,4 +40,8 @@ public class Statement {
         }
         return  totalPoints;
     }
+    protected String getHeader() {
+        return "Rental Record for "+this.getCustomerName()+"\n";
+    }
+
 }

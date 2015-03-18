@@ -40,17 +40,17 @@ public class Customer {
         return summary;
     }
 
-    public double getTotalRentialAmount() {
+    public double getTotalRentalAmount() {
         double totalAmount = 0d;
-        for (Rental thisRential : rentalList) {
-            frequentRenterPoints += thisRential.getBonusOn();
-            totalAmount += thisRential.getAmount();
+        for (Rental thisRental : rentalList) {
+            frequentRenterPoints += thisRental.getBonusOn();
+            totalAmount += thisRental.getAmount();
         }
         return  totalAmount;
     }
 
     private String getFooterLines() {
-        double totalAmount = getTotalRentialAmount();
+        double totalAmount = getTotalRentalAmount();
         String result = "";
         result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
         result += "You earned " + String.valueOf(frequentRenterPoints)
