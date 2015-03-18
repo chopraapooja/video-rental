@@ -1,9 +1,12 @@
 package com.twu.refactor;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+=======
+>>>>>>> origin/master
 /**
  * Created by poojar on 3/18/2015.
  */
@@ -22,6 +25,7 @@ public class Statement {
         }
         return  totalAmount;
     }
+<<<<<<< HEAD
     protected Map<String, Double> getMovieRentSummary() {
         Map<String, Double> summary = new HashMap<String, Double>();
         for (Rental thisRental : customer.getRentalList()) {
@@ -31,6 +35,8 @@ public class Statement {
         }
         return summary;
     }
+=======
+>>>>>>> origin/master
     protected int getFrequentRenterPoints() {
         int totalPoints = 0;
         for (Rental thisRental : customer.getRentalList()) {
