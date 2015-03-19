@@ -10,6 +10,7 @@ public class Customer {
     }
 
     private ArrayList<Rental> rentalList = new ArrayList<Rental>();
+
     private int frequentRenterPoints = 0;
 
     public Customer(String name) {
@@ -22,39 +23,4 @@ public class Customer {
 		return name;
 	}
 
-	public String getStatement() {
-        String header = "Rental Record for "+getName()+"\n";
-        String movieRentSummary = getMovieRentalSummary();
-        String footer = getFooterLines();
-		return header + movieRentSummary + footer;
-    }
-
-    public String getMovieRentalSummary() {
-        final String MOVIE_RENT = "\tTITLE\tRENT\n";
-        String summary = "";
-        for (Rental thisRental : rentalList) {
-            String movieTitle = thisRental.getMovie().getTitle();
-            String amt = String.valueOf(thisRental.getAmount());
-            summary += MOVIE_RENT.replace("TITLE", movieTitle).replace("RENT", amt);
-        }
-        return summary;
-    }
-
-    public double getTotalRentalAmount() {
-        double totalAmount = 0d;
-        for (Rental thisRental : rentalList) {
-            frequentRenterPoints += thisRental.getBonusOn();
-            totalAmount += thisRental.getAmount();
-        }
-        return  totalAmount;
-    }
-
-    private String getFooterLines() {
-        double totalAmount = getTotalRentalAmount();
-        String result = "";
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints)
-                + " frequent renter points";
-        return result;
-    }
 }
