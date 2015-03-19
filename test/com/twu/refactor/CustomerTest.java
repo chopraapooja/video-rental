@@ -13,7 +13,7 @@ public class CustomerTest extends TestCase {
 	private static final String GOLD_PATH = "test/data";
 
     private Customer dinsdale = new Customer("Dinsdale Pirhana");
-    private TextStatement dinsdalesStatement;
+    private CustomerStatement stmt_of_dinsdale;
 
     private Movie python = new Movie("Monty Python and the Holy Grail", REGULAR);
 	private Movie ran = new Movie("Ran", REGULAR);
@@ -22,26 +22,26 @@ public class CustomerTest extends TestCase {
 	private Movie wallace = new Movie("Wallace and Gromit", CHILDREN);
 
     public void setUp (){
-       dinsdalesStatement = new TextStatement(dinsdale);
-       dinsdale.addRental(new Rental (python, 3));
-       dinsdale.addRental(new Rental (ran, 1));
-       dinsdale.addRental(new Rental (la, 2));
-       dinsdale.addRental(new Rental (trek, 1));
-       dinsdale.addRental(new Rental (wallace, 6));
+       stmt_of_dinsdale = new CustomerStatement(dinsdale.getStatement());
+       dinsdale.addRental(new Rental(python, 3));
+       dinsdale.addRental(new Rental(ran, 1));
+       dinsdale.addRental(new Rental(la, 2));
+       dinsdale.addRental(new Rental(trek, 1));
+       dinsdale.addRental(new Rental(wallace, 6));
    }
 
     public void testEmpty() throws Exception {
     	dinsdale = new Customer("Dinsdale Pirhana");
-        dinsdalesStatement = new TextStatement(dinsdale);
-        equalsFile("1st Output", "outputEmpty", dinsdalesStatement.toString());
+        stmt_of_dinsdale = new CustomerStatement(dinsdale);
+        equalsFile("1st Output", "outputEmpty", stmt_of_dinsdale.toString());
     }
     public void testCustomer() throws Exception {
-        equalsFile("1st Output", "output1", dinsdalesStatement.toString());
+        equalsFile("1st Output", "output1", stmt_of_dinsdale.toString());
     }
 
     public void testChange() throws Exception {
     	la.setPriceCategory(REGULAR);
-        equalsFile("1st Output", "outputChange", dinsdalesStatement.toString());
+        equalsFile("1st Output", "outputChange", stmt_of_dinsdale.toString());
     }
 
     protected void equalsFile(String message, String fileName, String actualValue) throws IOException{

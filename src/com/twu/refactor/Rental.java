@@ -1,5 +1,7 @@
 package com.twu.refactor;
 
+import javax.swing.text.html.HTML;
+
 import static com.twu.refactor.MoviePriceCategory.*;
 
 public class Rental {
@@ -22,7 +24,7 @@ public class Rental {
     }
 
     public double getAmount() {
-        return getMovie().getPriceCategory().getCostFor(daysRented);
+        return getMovie().getCostFor(daysRented);
     }
 
     public int getBonus() {

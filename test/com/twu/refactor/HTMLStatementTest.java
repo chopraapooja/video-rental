@@ -2,11 +2,17 @@ package com.twu.refactor;
 
 import junit.framework.TestCase;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.StringReader;
+
 import static com.twu.refactor.MoviePriceCategory.CHILDREN;
 import static com.twu.refactor.MoviePriceCategory.NEW_RELEASE;
 import static com.twu.refactor.MoviePriceCategory.REGULAR;
 
 public class HTMLStatementTest extends TestCase {
+    private static final String GOLD_PATH = "test/data";
     private Customer dinsdale = new Customer("Dinsdale Pirhana");
     private HTMLStatement dinsdalesStatement;
 
@@ -25,8 +31,17 @@ public class HTMLStatementTest extends TestCase {
         dinsdale.addRental(new Rental (wallace, 6));
     }
 
-    public void testToString() {
-        System.out.println(dinsdalesStatement.toString());
+    public void testToString() throws IOException {
+        equalsFile("1st Output", "output.html", dinsdalesStatement.toString());
+    }
+
+    protected void equalsFile(String message, String fileName, String actualValue) throws IOException {
+        BufferedReader file = new BufferedReader (new FileReader(GOLD_PATH + '/' + fileName));
+        BufferedReader actualStream = new BufferedReader (new StringReader(actualValue));
+        String thisFileLine = null;
+        while  ((thisFileLine = file.readLine()) != null) {
+            assertEquals ("in file: " + fileName, thisFileLine, actualStream.readLine());
+        }
     }
 
 }

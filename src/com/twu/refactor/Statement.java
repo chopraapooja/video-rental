@@ -2,9 +2,7 @@ package com.twu.refactor;
 
 import java.util.Map;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by poojar on 3/18/2015.
@@ -17,6 +15,7 @@ public class Statement {
     protected String getCustomerName() {
         return customer.getName();
     }
+
     protected Double getTotalAmt() {
         double totalAmount = 0d;
         for (Rental thisRental : customer.getRentalList()) {

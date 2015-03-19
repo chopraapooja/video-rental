@@ -20,5 +20,9 @@ public class Movie {
 	public String getTitle () {
 		return title;
 	}
+
+    public double getCostFor(int daysRented) {
+        return getPriceCategory().getCostFor(daysRented);
+    }
 }
 
